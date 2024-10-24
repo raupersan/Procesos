@@ -23,9 +23,10 @@ class ProcesarFactura implements Runnable {
 
 
 public class CalculadoraFacturas {
-    volatile private double total;
+    volatile private double total; //volatile para que se actualice la variable en todos los hilos
 
     public synchronized void calcularFactura(double monto, double descuento, double tasa) {
+    	//hacemos la sincronización en el método para que se actualicen correctamente las variables
         double montoConDescuento = monto - (monto * descuento);
         double montoConTasa = montoConDescuento + (montoConDescuento * tasa);
         total += montoConTasa;

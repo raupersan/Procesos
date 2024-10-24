@@ -25,12 +25,14 @@ public class RegistroUsuarios {
     private ConcurrentSkipListSet<String> usuarios = new ConcurrentSkipListSet<>();
 
     public void registrarUsuario(String nombreUsuario) {
+    	synchronized (Registro.class) {
         if (!usuarios.contains(nombreUsuario)) {
             usuarios.add(nombreUsuario);
             System.out.println("Usuario registrado: " + nombreUsuario);
         } else {
             System.out.println("El usuario " + nombreUsuario + " ya existe.");
         }
+    	}
     }
     
 
