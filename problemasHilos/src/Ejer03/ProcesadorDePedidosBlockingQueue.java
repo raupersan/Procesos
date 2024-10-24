@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * EJEMPLO DE PRODUCTOR CONSUMIDOR.
- */
+
 class AgregarPedido implements Runnable {
     private ProcesadorDePedidosBlockingQueue procesador;
 
@@ -82,3 +82,4 @@ public class ProcesadorDePedidosBlockingQueue {
         }
     }
 }
+ */

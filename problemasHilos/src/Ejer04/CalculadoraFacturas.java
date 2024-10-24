@@ -23,9 +23,9 @@ class ProcesarFactura implements Runnable {
 
 
 public class CalculadoraFacturas {
-    private double total;
+    volatile private double total;
 
-    public void calcularFactura(double monto, double descuento, double tasa) {
+    public synchronized void calcularFactura(double monto, double descuento, double tasa) {
         double montoConDescuento = monto - (monto * descuento);
         double montoConTasa = montoConDescuento + (montoConDescuento * tasa);
         total += montoConTasa;
