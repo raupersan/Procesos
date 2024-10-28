@@ -23,7 +23,7 @@ public class Estadisticas {
     private int suma = 0;
     private int conteo = 0;
 
-    public void actualizarEstadisticas(int valor) {
+    public synchronized void actualizarEstadisticas(int valor) {
         suma += valor;
         conteo++;
         double promedio = (double) suma / conteo;

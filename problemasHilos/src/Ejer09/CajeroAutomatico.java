@@ -1,5 +1,6 @@
 package Ejer09;
 
+import java.util.concurrent.atomic.AtomicInteger;
 
 class UsuarioCajero implements Runnable {
     private CajeroAutomatico cajero;
@@ -16,21 +17,27 @@ class UsuarioCajero implements Runnable {
     }
 }
 
-
-public class CajeroAutomatico {
-    private int saldo = 1000;
+public class CajeroAutomatico  {
+    private AtomicInteger saldo = new AtomicInteger(1000);
 
     public void retirar(int cantidad) {
-        if (saldo >= cantidad) {
-            saldo -= cantidad;
-            System.out.println("Retiro de " + cantidad + " exitoso. Saldo restante: " + saldo);
-        } else {
+    	int actual;
+    	Boolean actualizado;
+    
+    	do {
+    		actual=saldo.get();
+    	if(actual-cantidad<=0){
+            System.out.println("Saldos insuficientes");
+    		}
+    	actualizado=saldo.compareAndSet(actual, saldo.get()-cantidad);
+    	}while(!actualizado);
+    	
             System.out.println("Fondos insuficientes para retirar " + cantidad);
-        }
+        
     }
 
     public int consultarSaldo() {
-        return saldo;
+        return saldo.get();
     }
     
 

@@ -3,6 +3,8 @@ package Ejer07;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 
 class Generador implements Runnable {
@@ -22,13 +24,14 @@ class Generador implements Runnable {
 
 
 public class GeneradorNumeros {
-    private List<Integer> numeros = new ArrayList<>();
+    private Set<Integer> numeros = new ConcurrentSkipListSet<Integer>();
     private Random random = new Random();
 
     public void generarNumero() {
         int numero = random.nextInt(100);
+        boolean agregado = numeros.add(numero);
         if (!numeros.contains(numero)) {
-            numeros.add(numero);
+        
             System.out.println("Número generado y agregado: " + numero);
         } else {
             System.out.println("Número duplicado: " + numero);

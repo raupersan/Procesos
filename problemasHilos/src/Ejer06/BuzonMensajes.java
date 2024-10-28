@@ -2,6 +2,7 @@ package Ejer06;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 class EnvioMensajes implements Runnable {
     private BuzonMensajes buzon;
@@ -35,7 +36,7 @@ class RecepcionMensajes implements Runnable {
 
 
 public class BuzonMensajes {
-    private Queue<String> mensajes = new LinkedList<>();
+    private LinkedBlockingQueue<String> mensajes = new LinkedBlockingQueue<>();
 
     public void enviarMensaje(String mensaje) {
         mensajes.add(mensaje);
@@ -43,12 +44,14 @@ public class BuzonMensajes {
     }
 
     public void recibirMensaje() {
-        if (!mensajes.isEmpty()) {
-            String mensaje = mensajes.poll();
-            System.out.println("Mensaje recibido: " + mensaje);
-        } else {
-            System.out.println("No hay mensajes para recibir.");
-        }
+    	String mensaje=" ";
+    	
+    	try {
+			mensaje=mensajes.take();
+			System.out.println(mensaje+" recibido");
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+		}
     }
     
     public static void main(String[] args) {
