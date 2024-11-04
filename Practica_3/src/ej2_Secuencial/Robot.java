@@ -12,7 +12,5 @@ public abstract class Robot {
 	}
 
 	public abstract void operar();
-
-	public abstract void start();
-
+	public abstract void comenzarOperar();
 }

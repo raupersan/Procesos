@@ -14,14 +14,7 @@ public class Main {
 		coche2.start();
 		coche3.start();
 		coche4.start();
-		try {
-			coche1.wait();
-			coche2.wait();
-			coche3.wait();
-			coche4.wait();
-		} catch (InterruptedException e) {
-			// TODO: handle exception
-		}
+		
 	}
 
 }

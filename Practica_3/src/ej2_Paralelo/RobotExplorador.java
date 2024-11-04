@@ -5,7 +5,11 @@ public class RobotExplorador extends Robot {
 	public RobotExplorador(String nombre, int tiempoOperacion) {
 		super(nombre, tiempoOperacion);
 	}
-
+	
+	@Override
+	public void comenzarOperar() {
+		this.run();
+	}
 	@Override
 	public void run() {
 		this.operar();

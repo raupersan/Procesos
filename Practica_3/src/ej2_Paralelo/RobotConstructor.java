@@ -8,6 +8,10 @@ public class RobotConstructor extends Robot {
 	}
 
 	@Override
+	public void comenzarOperar() {
+		this.run();
+	}
+	@Override
 	public void run() {
 		this.operar();
 	}

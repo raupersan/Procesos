@@ -24,24 +24,11 @@ public class Main {
 		lista.add(robotCons1);
 		lista.add(robotCons2);
 		lista.add(robotCons3);
-		/*He interpretado el enunciado como que quiere que se lancen
-		 * hilos hasta que la cantidad de estructuras sea 10, por lo 
-		 * tanto hago un bucle hasta que la variable contadorEstructuras
-		 * sea mayor o igual que 10
-		 */
 		
-		/*He probado haciéndolo de la siguiente manera:
-		 * for (int i = 0; i < 10; i++) {
-			robotCons1.start();
-			robotCons2.start();
-			robotCons3.start();
-		}
-		Pero salta una excepción, así que he guardado los objetos en 
-		un ArryList y llamar al método a partir de este
-		 */
+		
 		for(RobotConstructor aux: lista) {
 			for(int i=0; i<10; i++) {
-				aux.operar();
+				aux.start();
 			}
 		}
 		

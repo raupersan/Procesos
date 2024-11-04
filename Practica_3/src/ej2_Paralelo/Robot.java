@@ -12,5 +12,6 @@ public abstract class Robot extends Thread {
 	}
 
 	public abstract void operar();
+	public abstract void comenzarOperar();
 
 }

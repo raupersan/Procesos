@@ -34,9 +34,15 @@ public class CocheRunnable implements Runnable {
 	@Override
 	public void run() {
 		double distanciaActual=0;
+		System.out.println("El coche " + nombre + " ha comenzado");
 		for (int i = 0; i < this.distanciaTotal; i++) {
 			distanciaActual=distanciaActual+velocidad;
 			System.out.println("Soy el coche " + this.getNombre() + " y he avanzado " + distanciaActual + "m");
+			try {
+				Thread.sleep((int)velocidad);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if(distanciaActual>distanciaTotal) {
 				i=(int) distanciaTotal;
 				System.out.println("El coche " + this.getNombre() + " ha terminado");

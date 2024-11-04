@@ -6,47 +6,39 @@ public class RobotConstructor extends Robot {
 	public RobotConstructor(String nombre, int tiempoOperacion) {
 		super(nombre, tiempoOperacion);
 	}
-
+	@Override
+	public void comenzarOperar() {
+		this.run();
+	}
 	public void run() {
-		this.operar();
+		for (int i = 0; i < 10; i++) {
+			this.operar();
+		}
 	}
 
 	@Override
-	public synchronized void operar() {//Sincronizando directamente el método se acaba con la concurrencia,
-									   //obteniendo así un programa secuencial
+	public void operar() {
 		if (contadorEstructuras % 2 == 0) {
 			construir();
 		} else
 			destruir();
-
 	}
 
 	public void destruir() {
 		contadorEstructuras--;
 		System.out.println("Se ha destruido una estructura. Cantidad actual:" + contadorEstructuras);
-		try {
-			Thread.sleep(tiempoOperacion * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void construir() {
-		synchronized (this) {// Sincronizamos la lectura y actualización de la variable
 			contadorEstructuras += 3;
 			System.out.println("Se han construido tres estructuras. Cantidad actual:" + contadorEstructuras);
 			try {
-				Thread.sleep(tiempoOperacion * 1000);
+				Thread.sleep(tiempoOperacion);
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-		}
 	}
 
-	@Override
-	public void start() {
-		this.run();
-	}
-
+	
 }
