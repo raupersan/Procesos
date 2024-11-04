@@ -1,0 +1,3 @@
+a. Para un valorInicial=0, habrá 30 estructuras, como bien se puede comprobar en el println correspondiente.
+
+b. He utilizado synchronized en la lectura y actualización de la variable (if y en construir y destruir) porque es la sección crítica del programa
