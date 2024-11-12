@@ -1,5 +1,0 @@
-a. En una clase llamada Main que contiene solo esa función, para hacer el código más limpio y facilitar su mantenimiento.
-
-b. Para un valorInicial=0, deberían haber 30 estructuras, como se puede comprobar en el print correspondiente.
-
-c. He decidido hacer que la clase Robot extienda Thread para evitar así que pueda heredar de otras clases no deseadas.
