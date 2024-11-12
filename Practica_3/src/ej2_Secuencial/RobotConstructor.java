@@ -6,6 +6,7 @@ public class RobotConstructor extends Robot {
 	public RobotConstructor(String nombre, int tiempoOperacion) {
 		super(nombre, tiempoOperacion);
 	}
+	
 	@Override
 	public void comenzarOperar() {
 		this.run();
